@@ -65,3 +65,15 @@ async function searchRecipes(searchTerm) {
         messageEl.textContent = "Något gick fel. Försök igen senare.";
     }
 }
+//Visar receptet
+function displayRecipe(recipe) {
+    const article = document.createElement("article");
+    // Namn av reciepts
+    const heading = document.createElement("h2");
+    heading.textContent = recipe.name;
+    article.appendChild(heading);
+    //bild av receptet
+    const image = document.createElement ("img");
+    image.src = recipe.image;
+    image.alt = recipe.name;
+    article.appendChild(image);
