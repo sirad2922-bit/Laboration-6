@@ -86,3 +86,19 @@ function displayRecipe(recipe) {
         "<p><strong>Cooking time:</strong> " + recipe.cookTimeMinutes + " minutes</p>" +
         "<p><strong>Difficulty:</strong> " + recipe.difficulty + "</p>";
     article.appendChild(info);
+    //rubrik för ingredienser
+    const ingredientsHeading = document.createElement("h4");
+    ingredientsHeading.textContent = "Ingredients";
+    article.appendChild(ingredientsHeading);
+//instruktioner som numrerad lista
+    const ol = document.createElement("ol");
+    for (let i = 0; i < recipe.instructions.length; i++) {
+        const li = document.createElement("li");
+        li.textContent = recipe.instructions[i];
+        ol.appendChild(li);
+    }
+    article.appendChild(ol);
+
+    //lägger till receptet på sidan
+    recipeList.appendChild(article);
+}
