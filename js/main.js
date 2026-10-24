@@ -69,7 +69,7 @@ async function searchRecipes(searchTerm) {
 function displayRecipe(recipe) {
     const article = document.createElement("article");
     // Namn av reciepts
-    const heading = document.createElement("h2");
+    const heading = document.createElement("h3");
     heading.textContent = recipe.name;
     article.appendChild(heading);
     //bild av receptet
@@ -77,3 +77,12 @@ function displayRecipe(recipe) {
     image.src = recipe.image;
     image.alt = recipe.name;
     article.appendChild(image);
+    //Portioner och tider samt svårighetsgrad
+    const info = document.createElement("div");
+    info.className = "recipe-info";
+    info.innerHTML =
+        "<p><strong>Servings:</strong> " + recipe.servings + "</p>" +
+        "<p><strong>Prep time:</strong> " + recipe.prepTimeMinutes + " minutes</p>" +
+        "<p><strong>Cooking time:</strong> " + recipe.cookTimeMinutes + " minutes</p>" +
+        "<p><strong>Difficulty:</strong> " + recipe.difficulty + "</p>";
+    article.appendChild(info);
