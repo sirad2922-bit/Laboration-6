@@ -90,7 +90,22 @@ function displayRecipe(recipe) {
     const ingredientsHeading = document.createElement("h4");
     ingredientsHeading.textContent = "Ingredients";
     article.appendChild(ingredientsHeading);
-//instruktioner som numrerad lista
+
+     //ingredienser som punktlista
+    const ul = document.createElement("ul");
+    for (let i = 0; i < recipe.ingredients.length; i++) {
+        const li = document.createElement("li");
+        li.textContent = recipe.ingredients[i];
+        ul.appendChild(li);
+    }
+    article.appendChild(ul);
+
+    //rubrik för instruktioner
+    const instructionsHeading = document.createElement("h4");
+    instructionsHeading.textContent = "Instructions";
+    article.appendChild(instructionsHeading);
+
+    //instruktioner som numrerad lista
     const ol = document.createElement("ol");
     for (let i = 0; i < recipe.instructions.length; i++) {
         const li = document.createElement("li");
@@ -102,3 +117,4 @@ function displayRecipe(recipe) {
     //lägger till receptet på sidan
     recipeList.appendChild(article);
 }
+ 
